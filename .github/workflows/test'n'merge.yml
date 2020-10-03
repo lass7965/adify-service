@@ -18,10 +18,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.5.7 # This is the action
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "hidden-eyrie-44387" #Must be unique in Heroku
-          heroku_email: "lass@lkis.dk"
+          fetch-depth: 0
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: fastTest
+        run: mvn test -DskipTests=false -Dgroups=slow
+      - name: merge
+        run: |
+          git checkout ${GITHUB_REF#refs/heads/}
+          git rebase origin/release
+          git branch release
+          git push origin release:release
+          git push origin :${GITHUB_REF#refs/heads/}
