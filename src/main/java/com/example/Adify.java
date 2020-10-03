@@ -9,7 +9,7 @@ class Adify {
   Adify(ExternalService service) {
     this.service = service;
   }
-
+  //
   String fetch(String productId) {
     try {
       String content = service.get("?product=" + productId);
