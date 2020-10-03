@@ -23,5 +23,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.5.7 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "cryptic-shelf-72622" #Must be unique in Heroku
+          heroku_app_name: "hidden-eyrie-44387" #Must be unique in Heroku
           heroku_email: "lass@lkis.dk"
