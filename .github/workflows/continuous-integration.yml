@@ -24,7 +24,6 @@ jobs:
       - name: Compile
         run: mvn install
       - name: merge
-        if: success()
         run: |
           git checkout ${GITHUB_REF#refs/heads/}
           git rebase origin/master
