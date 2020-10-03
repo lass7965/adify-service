@@ -23,4 +23,4 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "https://cryptic-shelf-72622.herokuapp.com/" #Must be unique in Heroku
-          heroku_email: "Ylass@lkis.dk"
+          heroku_email: "lass@lkis.dk"
